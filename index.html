@@ -3,41 +3,79 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Scaling Activity Diagram</title>
+    <title>CSCE 412 Project 3 - Pre Deliverable</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <header class="top">
+    <header class="header">
       <div class="container">
-        <h1>Auto-Scaling Logic</h1>
-        <p class="sub">UML activity diagram + brief explanation</p>
+        <h1>CSCE 412 Project 3 - Pre Deliverable</h1>
+        <p class="subtitle">Load Balancer & Auto-Scaling Simulation</p>
       </div>
     </header>
 
     <main class="container">
-      <section class="card">
-        <h2>Diagram</h2>
-        <p class="muted">Click to open full size.</p>
+      <section class="layout">
 
-        <a class="image-link" href="diagram.png" target="_blank" rel="noreferrer">
-          <img class="diagram" src="diagram.png" alt="Scaling activity diagram" />
-        </a>
-      </section>
+        <!-- LEFT SIDE: DIAGRAM -->
+        <article class="card">
+          <h2>UML Diagram</h2>
+          <a class="image-link" href="diagram.png" target="_blank">
+            <img class="diagram" src="diagram.png" alt="Scaling activity diagram" />
+          </a>
+        </article>
 
-      <section class="grid">
-        <div class="card">
-          <h2>Scale Up</h2>
-          <p>
-            While <code>Queue &gt; 80 × servers</code>, add servers until the condition is false.
-          </p>
-        </div>
+        <!-- RIGHT SIDE: EXPLANATION SECTIONS -->
+        <aside class="card">
+          <h2>System Overview</h2>
 
-        <div class="card">
-          <h2>Scale Down</h2>
-          <p>
-            If <code>Queue &lt; 50 × servers</code> and <code>servers &gt; 1</code>, remove a server.
-          </p>
-        </div>
+          <div class="textbox">
+
+            <h3>1. Initialization</h3>
+            <p>
+              The program starts with an initialization where the user inputs their custom 
+              parameters. Then, the system starts the simulation,  creating web servers and
+              requests to be fulfilled.
+            </p>
+
+            <h3>2. Arrivals</h3>
+            <p>
+              For each cycle, a random number of requests arrives. While there
+              are still requests to be fulfilled, they are checked to see if their IP is blocked, 
+              then added to the queue if not blocked.
+            </p>
+
+            <h3>3. Queue</h3>
+            <p>
+              If the queue is not empty, and an idle server is available, the first request in the
+              queue is assigned to a server. If an idle server isn't available, the request remains
+              in the queue.
+            </p>
+
+            <h3>4. Servers</h3>
+            <p>
+              Each server is checked to see if the request has finished. If so, the request is removed
+              from the server, and statistics are updated. If the request isn't finished, it remains on
+              the server.
+            </p>
+
+            <h3>5. Scaling</h3>
+            <p>
+              The system changes the number of servers based on the number of tasks. If 
+              <b>Queue > 80 * servers</b>, servers are added. if <b>Queue < 50 * servers</b>
+              and more than one server exists, a server is removed.
+            </p>
+
+            <h3>6. Reporting</h3>
+            <p>
+              Performance metrics such as total processed requests, total servers utilized,
+              and duration of time are reported.
+            </p>
+
+          </div>
+        </aside>
+
       </section>
 
       <footer class="footer">
