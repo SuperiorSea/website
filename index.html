@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scaling Activity Diagram</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="container">
+        <h1>Auto-Scaling Logic</h1>
+        <p class="sub">UML activity diagram + brief explanation</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Diagram</h2>
+        <p class="muted">Click to open full size.</p>
+
+        <a class="image-link" href="diagram.png" target="_blank" rel="noreferrer">
+          <img class="diagram" src="diagram.png" alt="Scaling activity diagram" />
+        </a>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Scale Up</h2>
+          <p>
+            While <code>Queue &gt; 80 × servers</code>, add servers until the condition is false.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Scale Down</h2>
+          <p>
+            If <code>Queue &lt; 50 × servers</code> and <code>servers &gt; 1</code>, remove a server.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="muted">Hosted on GitHub Pages</span>
+      </footer>
+    </main>
+  </body>
+</html>
