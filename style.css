@@ -123,3 +123,14 @@ code {
   padding: 10px 0 34px;
   text-align: center;
 }
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 150px;
+  width: auto;
+}
